@@ -15,12 +15,6 @@ let sequelize = new Sequelize({
   port: config.port,
   database: config.database,
   dialect: "postgres",
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false // <<<<<<< YOU NEED THIS
-    }
-  },
 })
 
 // check database connection

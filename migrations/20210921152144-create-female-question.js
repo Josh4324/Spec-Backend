@@ -1,30 +1,33 @@
-"use strict";
+'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("Payouts", {
+    await queryInterface.createTable('FemaleQuestions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      amount: {
+      name: {
+        type: Sequelize.STRING
+      },
+      count: {
         type: Sequelize.INTEGER
       },
-      userId: {
+      option1: {
         type: Sequelize.INTEGER
       },
-      account_bank: {
-        type: Sequelize.STRING
+      option2: {
+        type: Sequelize.INTEGER
       },
-      account_number: {
-        type: Sequelize.STRING
+      option3: {
+        type: Sequelize.INTEGER
       },
-      reference: {
-        type: Sequelize.STRING
+      option4: {
+        type: Sequelize.INTEGER
       },
-      narration: {
-        type: Sequelize.STRING
+      option5: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +40,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("Payouts");
+    await queryInterface.dropTable('FemaleQuestions');
   }
 };
