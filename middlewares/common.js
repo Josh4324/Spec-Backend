@@ -38,7 +38,7 @@ module.exports = function CommonMiddleware(app){
     });
 
     //rate liniter
-    app.use("/api", rateLimiter);
+    //app.use("/api", rateLimiter);
 
     //xss attack - Data Sanitization
     app.use(xss());
