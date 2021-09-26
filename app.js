@@ -8,6 +8,7 @@ const DB = require("./config/config");
 
 
 const questionRoutes = require("./routes/questions");
+const detailRoutes = require("./routes/detail");
 
 const port = process.env.PORT || 3000;
 
@@ -16,7 +17,9 @@ Middleware(app);
 
 
 //REGISTER ROUTES HERE
+app.use("/api/v1/detail", detailRoutes);
 app.use("/api/v1", questionRoutes);
+
 
 app.get("/api", (req, res) => {
   const response = new Response(
