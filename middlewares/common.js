@@ -7,11 +7,11 @@ const cors = require("cors");
 const morgan = require("morgan");
 
 
-module.exports = function CommonMiddleware(app){
+module.exports = function CommonMiddleware(app) {
 
     app.use(
         express.json({
-          limit: "10mb",
+            limit: "10mb",
         })
     );
 
@@ -20,7 +20,7 @@ module.exports = function CommonMiddleware(app){
             limit: "10mb",
             extended: false,
             parameterLimit: 10000,
-            })
+        })
     );
 
 
@@ -32,9 +32,9 @@ module.exports = function CommonMiddleware(app){
 
     //Against brute attack
     const rateLimiter = rateLimit({
-    max: 200,
-    windowMs: 60 * 60 * 1000,
-    message: "Too many request from this IP, please try again in an hour!",
+        max: 200,
+        windowMs: 60 * 60 * 1000,
+        message: "Too many request from this IP, please try again in an hour!",
     });
 
     //rate liniter

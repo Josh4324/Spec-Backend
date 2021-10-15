@@ -12,7 +12,7 @@ cloudinary.config({
 
 exports.imageUpload = async (req, res) => {
     try {
-        cloudinary.uploader.upload(req.file.path, async (error, result) => {
+        cloudinary.uploader.upload(req.file.path, { height: 360, width: 360, crop: "fill" }, async (error, result) => {
             if (result) {
                 let picture = result.secure_url;
 
