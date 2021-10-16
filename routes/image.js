@@ -13,4 +13,11 @@ router.patch(
     imageController.imageUpload
 );
 
+router.patch(
+    "/finish",
+    upload.single("picture"),
+    imageController.imageUpload2
+);
+
+
 module.exports = router;

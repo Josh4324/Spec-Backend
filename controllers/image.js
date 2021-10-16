@@ -37,3 +37,32 @@ exports.imageUpload = async (req, res) => {
     }
 };
 
+exports.imageUpload2 = async (req, res) => {
+    console.log(req.body.picture)
+    try {
+        cloudinary.uploader.upload(req.body.picture, { height: 360, width: 360, crop: "fill" }, async (error, result) => {
+            if (result) {
+                let picture = result.secure_url;
+                console.log(picture);
+
+                const response = new Response(
+                    true,
+                    200,
+                    "success",
+                    picture
+                );
+                res.status(response.code).json(response);
+            }
+        });
+    } catch (err) {
+        console.log(err)
+        const response = new Response(
+            false,
+            500,
+            "An error ocurred, please try again",
+            err
+        );
+        res.status(response.code).json(response);
+    }
+};
+
