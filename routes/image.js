@@ -3,7 +3,9 @@ const router = express.Router();
 const { Token } = require("../helpers");
 const imageController = require("../controllers/image");
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
+const upload = multer({ dest: "uploads/",limits: { fieldSize: 25 * 1024 * 1024 } });
+
+
 
 const token = new Token();
 
